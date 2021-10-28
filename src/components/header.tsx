@@ -3,11 +3,11 @@ import { Box, Stack, Direction, LinkBase, Image, Button, Alignment, PaddingSize,
 
 export const Header = () => {
   return (
-    <Box width='' variant='hBanner'  >
+    <Box variant='hBanner'  >
       <Stack direction={Direction.Horizontal} childAlignment={Alignment.Center} shouldWrapItems={true} padding={PaddingSize.Wide1}>
-        <Stack direction={Direction.Horizontal} childAlignment={Alignment.Center} >
+        {/* <Stack direction={Direction.Horizontal} childAlignment={Alignment.Center} > */}
           <LinkBase target='/'>
-            <Box height='70px'  >
+            <Box width='70px'  >
               <Image
                 source='/ODG-04.jpg'
                 alternativeText='Home'
@@ -17,10 +17,10 @@ export const Header = () => {
             </Box>
           </LinkBase>
           <Spacing variant={PaddingSize.Wide2} />
-          <Box>
-            <Text variant='hTitle'>Fun Dogs</Text>
-            </Box>
-            </Stack>
+          {/* <Box> */}
+            <Text variant='hTitle'>Fun Dogs </Text>
+            {/* </Box> */}
+            {/* </Stack> */}
         <Spacing variant={PaddingSize.Wide2} />
         <Stack direction={Direction.Horizontal}>
           <LinkBase>Learn</LinkBase>
@@ -32,17 +32,17 @@ export const Header = () => {
           <LinkBase>Roadmap</LinkBase>
         </Stack>
         <Spacing variant={PaddingSize.Wide2} />
-        <Stack direction={Direction.Horizontal} childAlignment={Alignment.Center} contentAlignment={Alignment.End} padding={PaddingSize.Wide1}>
+        <Stack direction={Direction.Horizontal} childAlignment={Alignment.Center} padding={PaddingSize.Wide1}>
           <LinkBase
-            target='https://www.notion.so/kibalabs/everypage-learning-12109edaac1e4d5eb08672cadaa2fc26'
+            target='https://www.twitter.com'
             targetShouldOpenSameTab={false}>
           <IconButton icon={<KibaIcon iconId='ion-logo-twitter' />}></IconButton></LinkBase>
           <LinkBase
-            target='https://www.notion.so/kibalabs/everypage-learning-12109edaac1e4d5eb08672cadaa2fc26'
+            target='https://www.medium.com'
             targetShouldOpenSameTab={false}>
           <IconButton icon={<KibaIcon iconId='ion-logo-medium' />}></IconButton></LinkBase>
           <LinkBase
-            target='https://www.notion.so/kibalabs/everypage-learning-12109edaac1e4d5eb08672cadaa2fc26'
+            target='https://www.discord.com'
             targetShouldOpenSameTab={false}>
           <IconButton icon={<KibaIcon iconId='ion-logo-discord' />}></IconButton></LinkBase>
         </Stack>
