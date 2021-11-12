@@ -1,58 +1,78 @@
 import React from 'react';
-import { Box, Stack, Direction, LinkBase, Image, Button, Alignment, PaddingSize, Text, IconButton, KibaIcon, Spacing, WebView} from '@kibalabs/ui-react';
+import { Box, Stack, Direction, LinkBase, Image, Button, Alignment, PaddingSize, Text, IconButton, KibaIcon, Spacing, ResponsiveHidingView, ScreenSize, HidingView } from '@kibalabs/ui-react';
 
 export const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = React.useState<boolean>(false);
+  const onMenuClicked = (): void => {
+    setIsMenuOpen(!isMenuOpen);
+  };
   return (
     <Box variant='hBanner'  >
       <Stack direction={Direction.Horizontal} childAlignment={Alignment.Center} shouldWrapItems={true} padding={PaddingSize.Wide1}>
         {/* <Stack direction={Direction.Horizontal} childAlignment={Alignment.Center} > */}
-          <LinkBase target='/'>
-            <Box width='70px'  >
-              <Image
-                source='/ODG-04.jpg'
-                alternativeText='Home'
-                isFullWidth={false}
-                fitType='scale'
-              />
-            </Box>
-          </LinkBase>
-          <Spacing variant={PaddingSize.Wide2} />
-          {/* <Box> */}
-            <Text variant='hTitle'>Fun Dogs </Text>
-            {/* </Box> */}
-            {/* </Stack> */}
+        <LinkBase target='/'>
+          <Box width='70px'  >
+            <Image
+              source='/ODG-04.jpg'
+              alternativeText='Home'
+              isFullWidth={false}
+              fitType='scale'
+            />
+          </Box>
+        </LinkBase>
         <Spacing variant={PaddingSize.Wide2} />
-        <Stack direction={Direction.Horizontal}>
-          <LinkBase>Learn</LinkBase>
-          <Spacing variant={PaddingSize.Wide2} />
-          <LinkBase>Rarity</LinkBase>
-          <Spacing variant={PaddingSize.Wide2} />
-          <LinkBase>FAQ</LinkBase>
-          <Spacing variant={PaddingSize.Wide2} />
-          <LinkBase>Roadmap</LinkBase>
-        </Stack>
-        <Spacing variant={PaddingSize.Wide2} />
-        <Stack direction={Direction.Horizontal} childAlignment={Alignment.Center} padding={PaddingSize.Wide1}>
-          <LinkBase
-            target='https://www.twitter.com'
-            targetShouldOpenSameTab={false}>
-          <IconButton icon={<KibaIcon iconId='ion-logo-twitter' />}></IconButton></LinkBase>
-          <LinkBase
-            target='https://www.medium.com'
-            targetShouldOpenSameTab={false}>
-          <IconButton icon={<KibaIcon iconId='ion-logo-medium' />}></IconButton></LinkBase>
-          <LinkBase
-            target='https://www.discord.com'
-            targetShouldOpenSameTab={false}>
-          <IconButton icon={<KibaIcon iconId='ion-logo-discord' />}></IconButton></LinkBase>
-        </Stack>
-      </Stack>
-      <Stack >
-        <Box width='500px' height='500px' variant='hGif'>
-          <Stack isFullWidth={true} isFullHeight={true} direction={Direction.Horizontal} childAlignment={Alignment.Center} contentAlignment={Alignment.Center}>
-            <WebView url={'2RNM.gif'} />
+        <Text variant='hTitle'>Fun Dogs </Text>
+        <ResponsiveHidingView hiddenBelow={ScreenSize.Large} >
+          <Stack direction={Direction.Horizontal} childAlignment={Alignment.Center} shouldAddGutters={true} paddingStart={PaddingSize.Wide2} paddingEnd={PaddingSize.Wide2}>
+            <LinkBase target={'#learn'}>Learn</LinkBase>
+            <Spacing variant={PaddingSize.Wide2} />
+            <LinkBase target={'#rarity'}>Rarity</LinkBase>
+            <Spacing variant={PaddingSize.Wide2} />
+            <LinkBase target={'#faqs'}>FAQ</LinkBase>
+            <Spacing variant={PaddingSize.Wide2} />
+            <LinkBase target={'#roadmap'}>Roadmap</LinkBase>
+            <LinkBase
+              target='https://www.twitter.com'
+              targetShouldOpenSameTab={false}>
+              <IconButton icon={<KibaIcon iconId='ion-logo-twitter' />}></IconButton></LinkBase>
+            <LinkBase
+              target='https://www.medium.com'
+              targetShouldOpenSameTab={false}>
+              <IconButton icon={<KibaIcon iconId='ion-logo-medium' />}></IconButton></LinkBase>
+            <LinkBase
+              target='https://www.discord.com'
+              targetShouldOpenSameTab={false}>
+              <IconButton icon={<KibaIcon iconId='ion-logo-discord' />}></IconButton></LinkBase>
           </Stack>
-        </Box>
+        </ResponsiveHidingView>
+        <ResponsiveHidingView hiddenAbove={ScreenSize.Small}  >
+          <IconButton icon={<KibaIcon iconId='ion-menu-outline' />} label='Open menu' onClicked={onMenuClicked} />
+        </ResponsiveHidingView>
+        <HidingView isHidden={!isMenuOpen}>
+          <ResponsiveHidingView hiddenAbove={ScreenSize.Large}>
+            <Stack direction={Direction.Vertical} isFullWidth={true} childAlignment={Alignment.Center} shouldAddGutters={true} paddingStart={PaddingSize.Wide2} paddingEnd={PaddingSize.Wide2}>
+              <LinkBase
+                target='https://www.twitter.com'
+                targetShouldOpenSameTab={false}>
+                <IconButton icon={<KibaIcon iconId='ion-logo-twitter' />}></IconButton></LinkBase>
+              <LinkBase
+                target='https://www.medium.com'
+                targetShouldOpenSameTab={false}>
+                <IconButton icon={<KibaIcon iconId='ion-logo-medium' />}></IconButton></LinkBase>
+              <LinkBase
+                target='https://www.discord.com'
+                targetShouldOpenSameTab={false}>
+                <IconButton icon={<KibaIcon iconId='ion-logo-discord' />}></IconButton></LinkBase>
+              <Button text='Learn' target={'#learn'} />
+              <Spacing variant={PaddingSize.Wide2} />
+              <LinkBase target={'#rarity'}>Rarity</LinkBase>
+              <Spacing variant={PaddingSize.Wide2} />
+              <LinkBase target={'#faqs'}>FAQ</LinkBase>
+              <Spacing variant={PaddingSize.Wide2} />
+              <LinkBase target={'#roadmap'}>Roadmap</LinkBase>
+            </Stack>
+          </ResponsiveHidingView>
+        </HidingView>
       </Stack>
     </Box>
   );

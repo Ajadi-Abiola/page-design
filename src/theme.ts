@@ -150,6 +150,10 @@ export const buildCoolTheme = (): ITheme => {
         'padding-right': '15%',
         'background-color': '#38E27D',
       },
+      hGif: {
+        'position': 'center',
+       
+      },
       
     },
     texts: {
@@ -183,7 +187,12 @@ export const buildCoolTheme = (): ITheme => {
         'color':'white',
         
       },
-      
+      faqTitle: {
+        'font-size': '3em',
+        'color': '#000000',
+        'font-weight': '800',
+        'text-transform': 'uppercase',
+      },
 
 
       header1: {
@@ -245,11 +254,7 @@ export const buildCoolTheme = (): ITheme => {
     vVideo: {
       width: '100&'
     },
-    hGif: {
-      'position': 'center',
-      'padding-left': '25%',
-      'padding-right': '25%'
-    },
+   
     
     buttons: {
       primary: {
@@ -402,11 +407,12 @@ export const buildCoolTheme = (): ITheme => {
               'border-width': '1px',
               "border-radius": '150px',
               // 'padding-left':'10%',
-              // 'padding-right':'10%',
+               'padding-right':'10%',
               
               'min-width':'auto',
               'transform-origin': 'center center',
-              'font-family': 'sans-serif'
+              'font-family': 'sans-serif',
+              'outline-width':'250px'
             
 
             },
@@ -442,6 +448,50 @@ export const buildCoolTheme = (): ITheme => {
           default: {
             background: {
               'background-color':'#FC9144',
+              'border-color': 'rgba(255, 255, 255, 0.3)',
+              'border-width': '1px',
+              "border-radius": '150px',
+              // 'padding-left':'10%',
+              // 'padding-right':'10%',
+              
+              'min-width':'auto',
+              'transform-origin': 'center center',
+              'font-family': 'sans-serif'
+            
+
+            },
+            text: {
+              color: '#000000',
+              'font-size': '20px',
+              'font-style':'bold',
+
+            },
+          },
+          hover: {
+            background: {
+              'background-color': 'rgba(255, 255, 255, 0.35)',
+
+           
+            
+            },
+          },
+          press: {
+            background: {
+              'background-color': 'rgba(255, 255, 255, 0.55)',
+            },
+          },
+          focus: {
+            background: {
+              'border-color': 'rgba(255, 255, 255, 0.75)',
+            },
+          },
+        },
+      },
+      connectBtn: {
+        normal: {
+          default: {
+            background: {
+              'background-color':'#EBC20E',
               'border-color': 'rgba(255, 255, 255, 0.3)',
               'border-width': '1px',
               "border-radius": '150px',
